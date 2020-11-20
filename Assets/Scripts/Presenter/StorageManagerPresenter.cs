@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StorageManagerPresenter
+public class StorageManagerPresenter : IStorageManagerPresenter
 {
-    private IStorageManager storageManager;
+    private ILevelStorageManager storageManager;
 
     public StorageManagerPresenter()
     {
-        storageManager = new StorageManager();
+        storageManager = new LevelStorageManager();
     }
 
     public int LevelCounter()

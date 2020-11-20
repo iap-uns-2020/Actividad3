@@ -5,4 +5,5 @@ using UnityEngine;
 public interface ILevelStorageManager{
 	void Save(string newLevel);
 	string Get(int level);
+	int LevelCounter();
 }
