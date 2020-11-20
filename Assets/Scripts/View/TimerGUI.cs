@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System;
 using System.IO;
 
-public class NewBehaviourScript : MonoBehaviour
+public class TimerGUI : MonoBehaviour
 {
     private DateTime startTime;
     private DateTime finnishTime;
