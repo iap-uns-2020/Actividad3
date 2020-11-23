@@ -7,12 +7,14 @@ using ZXing;
 using ZXing.QrCode;
 
 public class QRCodeReader : MonoBehaviour, IQRCodeReader{
-	
+	private const string NEWLEVELADDEDMSG = "NUEVO NIVEL AGREGADO!";
+	private ILevelStorageManagerPresenter levelStorageManagerPresenter;
 	private WebCamTexture camTexture;
 	public Text textField;
 	public RawImage rawImage;
 
 	void Start(){
+		levelStorageManagerPresenter = new LevelStorageManagerPresenter();
 		camTexture = new WebCamTexture();
 		rawImage.texture = camTexture;
         rawImage.material.mainTexture = camTexture;
@@ -27,8 +29,8 @@ public class QRCodeReader : MonoBehaviour, IQRCodeReader{
     		IBarcodeReader barcodeReader = new BarcodeReader ();
     		var result = barcodeReader.Decode(camTexture.GetPixels32(),camTexture.width, camTexture.height);   		
     		if (result != null) {
-     		 Debug.Log("DECODED TEXT FROM QR: " + result.Text);
-     		 textField.text = "Nuevo Nivel Agregado!";
+    			levelStorageManagerPresenter.Save(result.Text.ToString());
+     			textField.text = NEWLEVELADDEDMSG;
     		}  	
     	}catch(Exception ex) { Debug.LogWarning (ex.Message); }
 	}

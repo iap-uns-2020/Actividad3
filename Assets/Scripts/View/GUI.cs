@@ -7,36 +7,46 @@ public class GUI : MonoBehaviour
 {
     public Button leftArrow;
     public Button rightArrow;
+    public Text levelCounterText;
     private int imageLevelNumber;
     public Button buttonLevel;
     public Sprite[] levelImages;
     private int cantNiveles;
-    private IStorageManagerPresenter storageManagerPresenter;
+    private ILevelStorageManagerPresenter storageManagerPresenter;
 
     public Sprite levelTexture;
 
     void Start()
     {
         //levelImages = new Sprite[CANTIMAGENESDENIVELES];
-        storageManagerPresenter = new StorageManagerPresenter();
+        storageManagerPresenter = new LevelStorageManagerPresenter();
         cantNiveles = storageManagerPresenter.LevelCounter();
        
         imageLevelNumber = 0;
     }
 
 
-    public void NextLevelImage()
-    {
-        if (imageLevelNumber< cantNiveles-1)
+    public void NextLevelImage(){   
+        Debug.Log("next");
+        if (imageLevelNumber< cantNiveles-1){
             imageLevelNumber++;
-        buttonLevel.GetComponent<Button>().GetComponent<Image>().sprite = levelTexture;
+            levelCounterText.text = "Level "+imageLevelNumber;
+        }
+
+        //buttonLevel.GetComponent<Button>().GetComponent<Image>().sprite = levelTexture;
     }
 
-    public void PreviousLevelImage()
-    {
-        if (imageLevelNumber > 0)
+    public void PreviousLevelImage(){
+        Debug.Log("previous");
+        if (imageLevelNumber > 0){
             imageLevelNumber--;
-        buttonLevel.GetComponent<Button>().GetComponent<Image>().sprite = levelTexture;
+            levelCounterText.text = "Level "+imageLevelNumber;
+        }
+        //buttonLevel.GetComponent<Button>().GetComponent<Image>().sprite = levelTexture;
+    }
+
+    public void elMetodo(){
+        Debug.Log("el metodo");
     }
 }
 

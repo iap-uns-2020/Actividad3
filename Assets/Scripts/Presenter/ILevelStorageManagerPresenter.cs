@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IStorageManagerPresenter
+public interface ILevelStorageManagerPresenter
 {
 	int LevelCounter();
+	string Get(int level);
+	void Save(string upcomingLevel);
 }
