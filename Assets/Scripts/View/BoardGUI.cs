@@ -6,54 +6,62 @@ using System;
 
 public class BoardGUI : MonoBehaviour
 {
-    public GameObject wall;
-    public GameObject hole;
-    public GameObject goal;
-    public GameObject ball;
-    public GameObject board;
 
-    const float POSITIONX = 445f;
-    const float POSITIONY = 627.2f;
-    const float POSITIONZ = -17554f;
+    public GameObject plane;
+    public GameObject camera;
 
-    const int boardSize = 10;
+    const float POSITIONX = 0f;
+    const float POSITIONY = 0f;
+    const float POSITIONZ = 0f;
 
+    const float boardSizex = 10f;//*1.067781f;
+    const float boardSizey = 10f;//*2.168959f;
+
+    public SceneObjectManager sceneObjectManager;
+    private ILevelManagerPresenter levelManagerPresenter;
 
     void Start()
     {
-       CreateBoard();
+        //levelManagerPresenter = new LevelManagerPresenter(this,new Level(1));
+        CreateBoard();
+
     }
 
     public void CreateBoard()
     {
-        string mapCode = "10#10#mmmmmmmmmmmllllllllmmlmmmmmmlmmlmllllmlmmlmmlmmmlmmlpmlmlllmmllmlmmmlmmmmmlhlhlmmsllllhlhmmmmmmmmmmm";
+        int rows;// = levelManagerPresenter.GetRows();
+        int cols;//= levelManagerPresenter.GetCols();
+        string levelToPlay;//= levelManagerPresenter.GetLevelToPlay();
 
-        string[] mapCodeSplitted = SplitMapCode(mapCode);
-        int rows = GetRows(mapCodeSplitted);
-        int cols = GetCols(mapCodeSplitted);
-        string map = GetMap(mapCodeSplitted);
-        SetObjectSize(rows, cols);
+        levelToPlay = "mmmmmmmmmmmmmllllllllllmmllllllllllmmllllmmmlllmmllllmpmlllmmllllmlmlllmmmmmmmlmlllmmmlllllmlllmmmsllllmlllmmmmmmmmmlllmmllllllllllmmmmmmmmmmmmm";
+        rows = 12;
+        cols = 12;
+
+        plane.transform.localScale = new Vector3(rows/5, 1, cols/5);
+        plane.transform.position = new Vector3(rows / 2, 0, cols/2);
+        //plane.transform.rotation = Quaternion.Euler(0, 90, 0) * plane.transform.rotation;
+        camera.transform.position = new Vector3(rows / 2, 20, cols / 2);
+
+        //SetObjectSize(rows, cols);
         int k = 0;
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
             {
-                char objectRepresentation = map[k];
+                Vector3 objectPosition = new Vector3(i, 0, j);
+                sceneObjectManager.Create(levelToPlay[k],objectPosition);
                 k++;
-                Vector3 objectPosition = GetNextPosition(rows, cols, i, j);
-                GameObject objectToCreate = GetObject(objectRepresentation);
-                createObject(objectToCreate, objectPosition);
             }
         }
 
-        DestroyObjects();
+       // DestroyObjects();
     }
 
-    private void SetObjectSize(int rows, int cols)
+    /*private void SetObjectSize(int rows, int cols)
     {
-        wall.transform.localScale = new Vector3(boardSize / rows, wall.transform.localScale.y, boardSize / cols);
-        hole.transform.localScale = new Vector3(boardSize / rows, hole.transform.localScale.y, boardSize / cols);
-    }
+        wall.transform.localScale = new Vector3(boardSizex / rows, wall.transform.localScale.y, boardSizey / cols);
+        hole.transform.localScale = new Vector3(boardSizex / rows, hole.transform.localScale.y, boardSizey / cols);
+    }*/
 
     private string[] SplitMapCode(string mapCode)
     {
@@ -82,51 +90,22 @@ public class BoardGUI : MonoBehaviour
         return new Vector3(nextPositionInRow, POSITIONY, nextPositionInColumn);
     }
 
-    private float GetNextPositionInRow(int rows, int col)
+    private float GetNextPositionInRow(int rows, int j)
     {
-        return POSITIONX - (boardSize / rows * col);
+        return  j;
     }
 
     private float GetNextPositionInColumn(int cols, int i)
     {
-        return POSITIONZ + (boardSize / cols * i);
+        return i;
     }
 
-    private GameObject GetObject(char objectRepresentation)
-    {
-        GameObject objectToCreate = null;
-
-        switch (objectRepresentation)
-        {
-            case 'm':
-                objectToCreate = wall;
-                break;
-            case 'p':
-                objectToCreate = ball;
-                break;
-            case 's':
-                objectToCreate = goal;
-                break;
-            case 'h':
-                objectToCreate = hole;
-                break;
-        }
-
-        return objectToCreate;
-    }
-
-    private void createObject(GameObject objectToCreate, Vector3 position)
-    {
-        if (objectToCreate != null)
-            Instantiate(objectToCreate, position, transform.rotation);
-    }
-
-    private void DestroyObjects()
+    /*private void DestroyObjects()
     {
         Destroy(wall);
         Destroy(ball);
         Destroy(goal);
         Destroy(hole);
-    }
+    }*/
 
 }

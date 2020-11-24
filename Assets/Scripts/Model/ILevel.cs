@@ -4,4 +4,7 @@ using UnityEngine;
 
 public interface ILevel{
 	void Load(int level);
+	int GetRows();
+	int GetCols();
+	string GetLevelToPlay();
 }

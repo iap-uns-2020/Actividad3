@@ -7,13 +7,6 @@ public class PlayerMoves : MonoBehaviour
 {
     public bool posicion_plana;
     private Rigidbody rb;
-    public Text textdebugy;
-    public Text textdebugx;
-    public Text textdebugz;
-
-    public Text textdebugquaterniony;
-    public Text textdebugquaternionx;
-    public Text textdebugquaternionz;
 
     private float lastMovementInX;
     private float lastMovementInY;
@@ -27,7 +20,7 @@ public class PlayerMoves : MonoBehaviour
         accelerometer = new Accelerometer();
         rb = GetComponent<Rigidbody>();
         posicion_plana = true;
-        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortrait = false;
         Screen.autorotateToLandscapeLeft = false;
         Screen.autorotateToLandscapeRight = false;
         lastMovementInX = 0.0f;
