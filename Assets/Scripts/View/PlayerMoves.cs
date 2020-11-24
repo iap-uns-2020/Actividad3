@@ -36,11 +36,15 @@ public class PlayerMoves : MonoBehaviour
     private void GetControlPlayerUpdate()
     {
         Vector3 movement = accelerometer.UpdateControlPlayer();
-        movement = Quaternion.Euler(90, 0, 0) * movement;
+        //movement = Quaternion.Euler(90, 0, 0) * movement;
 
-        float actualMovementInX = movement.x;
-        float actualMovementInZ = movement.z;
+        float actualMovementInX = -movement.y;
+        float actualMovementInZ = movement.x;
         float actualMovementInY = 0.1f;
+
+        if(movement.sqrMagnitude<1)
+        	movement.Normalize();
+
         if (lastMovementInX != actualMovementInX)
         {
             MoveInX(actualMovementInX, actualMovementInY);
