@@ -15,12 +15,13 @@ public class GUI : MonoBehaviour
     private int currentLevel;
     private int cantNiveles;
     private ILevelStorageManagerPresenter storageManagerPresenter;
+    private ICurrentLevelManagerPresenter currentLevelManagerPresenter;
 
 
     void Start(){
         storageManagerPresenter = new LevelStorageManagerPresenter();
+        currentLevelManagerPresenter = new CurrentLevelManagerPresenter();
         cantNiveles = storageManagerPresenter.LevelCounter();
-        Debug.Log("cant niveles: "+cantNiveles);
         SelectFirstLevel();
     }
 
@@ -55,8 +56,7 @@ public class GUI : MonoBehaviour
     }
 
     public void SetSelectedLevel(){
-        Debug.Log("current level: "+ currentLevel);
-        storageManagerPresenter.SetCurrentLevel(currentLevel);
+        currentLevelManagerPresenter.SetCurrentLevel(currentLevel);
     }
 
 

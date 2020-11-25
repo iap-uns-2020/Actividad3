@@ -18,7 +18,6 @@ public class Level : ILevel{
 
 	public void Load(int toLoad){
 		ParseLevelParameters(toLoad);
-		Debug.Log(levelToPlay);
 		map = new char[rows,cols];
 		int k=0;
 		for(int i=0; i<rows; i++){

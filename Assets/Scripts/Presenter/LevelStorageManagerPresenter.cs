@@ -24,12 +24,4 @@ public class LevelStorageManagerPresenter : ILevelStorageManagerPresenter
     public string Get(int level){
         return levelStorageManager.Get(level);
     }
-
-    public void SetCurrentLevel(int level){
-        levelStorageManager.SetCurrentLevel(level);
-    }
-
-    public int GetCurrentLevel(){
-        return levelStorageManager.GetCurrentLevel();
-    }
 }

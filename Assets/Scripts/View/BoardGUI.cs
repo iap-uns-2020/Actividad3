@@ -12,14 +12,14 @@ public class BoardGUI : MonoBehaviour
 
     private SceneObjectManager sceneObjectManager;
     private ILevelManagerPresenter levelManagerPresenter;
-    private ILevelStorageManagerPresenter levelStorageManagerPresenter;
+    private ICurrentLevelManagerPresenter currentLevelManagerPresenter;
 
 
     void Start(){
         levelManagerPresenter = new LevelManagerPresenter(this,new Level());
-        levelStorageManagerPresenter = new LevelStorageManagerPresenter();
+        currentLevelManagerPresenter = new CurrentLevelManagerPresenter();
         sceneObjectManager = new SceneObjectManager();
-        StartLevel(levelStorageManagerPresenter.GetCurrentLevel());
+        StartLevel(currentLevelManagerPresenter.GetCurrentLevel());
     }
 
     public void StartLevel(int level){
@@ -35,7 +35,7 @@ public class BoardGUI : MonoBehaviour
 
 
         plane.transform.localScale = new Vector3(rows/10, 1, cols/10);
-        plane.transform.position = new Vector3(rows / 2, -0.5f, cols/2);
+        plane.transform.position = new Vector3(rows / 2, -1f, cols/2);
         camera.transform.position = new Vector3(rows / 2, 20, cols / 2);
 
         int k = 0;

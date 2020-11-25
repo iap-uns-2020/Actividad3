@@ -6,8 +6,7 @@ using UnityEngine;
 public class LevelStorageManager : ILevelStorageManager{
 	private const string LEVELSKEY = "levels";
 	private const string LEVELCOUNTKEY = "quantity";
-	private const string CURRENTLEVELKEY = "currentLevel";
-	
+		
 	public void Save(string upcomingLevel){
 		Debug.Log(upcomingLevel);
 		int levelCount = PlayerPrefs.GetInt(LEVELCOUNTKEY);
@@ -18,7 +17,6 @@ public class LevelStorageManager : ILevelStorageManager{
 	}
 
 
-
 	public string Get(int level){
 		return PlayerPrefs.GetString(LEVELSKEY+""+level);
 	}
@@ -27,11 +25,5 @@ public class LevelStorageManager : ILevelStorageManager{
 		return PlayerPrefs.GetInt(LEVELCOUNTKEY);
 	}
 
-	public void SetCurrentLevel(int level){
-		PlayerPrefs.SetInt(CURRENTLEVELKEY,level);	
-	}
 
-	public int GetCurrentLevel(){
-		return PlayerPrefs.GetInt(CURRENTLEVELKEY);
-	}
 }
