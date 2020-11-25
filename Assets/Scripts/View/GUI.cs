@@ -8,52 +8,45 @@ public class GUI : MonoBehaviour
 {
     public Button leftArrow;
     public Button rightArrow;
-    public Text levelCounterText;
-    private int imageLevelNumber;
     public Button buttonLevel;
-    public Sprite[] levelImages;
+    public Text levelCounterText;
+    private int currentLevel;
     private int cantNiveles;
     private ILevelStorageManagerPresenter storageManagerPresenter;
 
-    public Sprite levelTexture;
 
     void Start()
     {
-        //levelImages = new Sprite[CANTIMAGENESDENIVELES];
         storageManagerPresenter = new LevelStorageManagerPresenter();
         cantNiveles = storageManagerPresenter.LevelCounter();
-       
-        imageLevelNumber = 0;
+        SelectFirstLevel();
     }
 
-
-    public void NextLevelImage(){   
-        Debug.Log("next");
-        if (imageLevelNumber< cantNiveles-1){
-            imageLevelNumber++;
-            levelCounterText.text = "Level "+imageLevelNumber;
+    private void SelectFirstLevel(){
+        if(cantNiveles>0){
+            currentLevel = 1;
+            levelCounterText.text = "Level "+currentLevel;   
         }
-
-        //buttonLevel.GetComponent<Button>().GetComponent<Image>().sprite = levelTexture;
     }
 
-    public void PreviousLevelImage(){
-        Debug.Log("previous");
-        if (imageLevelNumber > 0){
-            imageLevelNumber--;
-            levelCounterText.text = "Level "+imageLevelNumber;
+    public void SelectNextLevel(){   
+        if (currentLevel<cantNiveles-1){
+            currentLevel++;
+            levelCounterText.text = "Level "+currentLevel;
         }
-        //buttonLevel.GetComponent<Button>().GetComponent<Image>().sprite = levelTexture;
+    }
+
+    public void SelectPreviousLevel(){
+        if (currentLevel > 1){
+            currentLevel--;
+            levelCounterText.text = "Level "+currentLevel;
+        }
     }
 
 
     public void ChangeScene()
     {
         SceneManager.LoadScene(1);
-    }
-
-    public void StartLevel(){
-        
     }
 }
 

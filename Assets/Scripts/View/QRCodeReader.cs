@@ -5,16 +5,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using ZXing;
 using ZXing.QrCode;
+using Compression;
 
 public class QRCodeReader : MonoBehaviour, IQRCodeReader{
 	private const string NEWLEVELADDEDMSG = "NUEVO NIVEL AGREGADO!";
 	private ILevelStorageManagerPresenter levelStorageManagerPresenter;
+	private IStringCompression stringCompression;
 	private WebCamTexture camTexture;
 	public Text textField;
 	public RawImage rawImage;
 
 	void Start(){
 		levelStorageManagerPresenter = new LevelStorageManagerPresenter();
+		stringCompression = new StringCompression();
 		camTexture = new WebCamTexture();
 		rawImage.texture = camTexture;
         rawImage.material.mainTexture = camTexture;
@@ -29,7 +32,7 @@ public class QRCodeReader : MonoBehaviour, IQRCodeReader{
     		IBarcodeReader barcodeReader = new BarcodeReader ();
     		var result = barcodeReader.Decode(camTexture.GetPixels32(),camTexture.width, camTexture.height);   		
     		if (result != null) {
-    			levelStorageManagerPresenter.Save(result.Text.ToString());
+    			levelStorageManagerPresenter.Save(stringCompression.Decompress(result.Text));
      			textField.text = NEWLEVELADDEDMSG;
     		}  	
     	}catch(Exception ex) { Debug.LogWarning (ex.Message); }

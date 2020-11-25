@@ -7,6 +7,13 @@ using UnityEngine;
 namespace Compression{
 	public class StringCompression : IStringCompression{
 
+		private const char WALLCODE = 'w';
+		private const char BALLCODE = 'b';
+		private const char FREECODE = 'f';
+		private const char HOLECODE = 'h';
+		private const char GOALCODE = 'g';
+		private const char SEPARATOR = '#';
+
 		public string Compress(string str){
 			string compressed = "";
 			int consecutives=0;
@@ -37,6 +44,10 @@ namespace Compression{
 			char current;
 			string decompressedStr="";
 			string toInt = "";
+			string[] splitted = compressedStr.Split('#');
+			compressedStr = splitted[2];
+			Console.WriteLine(splitted[2]);
+				
 			while(i<compressedStr.Length){
 				current = compressedStr[i];
 				decompressedStr+=current;
@@ -44,17 +55,19 @@ namespace Compression{
 					toInt+=compressedStr[j];
 					j++;
 				}
-				if(string.Compare(toInt,"")!=0)
+				if(string.Compare(toInt,"")!=0){
 					decompressedStr+= AddRepetitions(current,Int16.Parse(toInt));
-				toInt = "";
+					toInt = "";
+				}
+				
 				i=j;
 				j=i+1;
 			}
-			return decompressedStr;
+			return splitted[0]+SEPARATOR+splitted[1]+SEPARATOR+decompressedStr;
 		}
 
 		private bool InvalidChar(char c){
-			return c!='m' && c!='l' && c!= 'h' && c!='p' && c!='s';
+			return c!=WALLCODE && c!=FREECODE && c!= HOLECODE && c!=BALLCODE && c!=GOALCODE;
 		}
 
 		private string AddRepetitions(char toAdd, int repetitions){
