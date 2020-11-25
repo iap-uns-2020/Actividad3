@@ -46,14 +46,14 @@ public class GUI : MonoBehaviour
         //buttonLevel.GetComponent<Button>().GetComponent<Image>().sprite = levelTexture;
     }
 
-    public void elMetodo(){
-        Debug.Log("el metodo");
-    }
-
 
     public void ChangeScene()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void StartLevel(){
+        
     }
 }
 

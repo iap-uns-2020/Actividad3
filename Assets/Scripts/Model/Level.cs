@@ -10,10 +10,15 @@ public class Level : ILevel{
 	private int rows, cols;
 
 	public Level(int levelNumber){
+
 		levelStorageManager = new LevelStorageManager();
 		GetLevel(levelNumber);
 		map = new char[rows, cols];
+		//levelStorageManager.Save("8#8#mmmmmmmmmllllllmmlhllllmmllmmmlmmlsmlllmmmmmlllmmplllllmmmmmmmmm");
+	  	PlayerPrefs.DeleteAll();
 	}
+
+
 
 	public void Load(int toLoad){
 		int k=0;
@@ -32,7 +37,6 @@ public class Level : ILevel{
 		rows = Int16.Parse(mapCodeSplitted[0]);
 		cols = Int16.Parse(mapCodeSplitted[1]);
 		levelToPlay = mapCodeSplitted[2];
-
 	}
 
 	public int GetRows()
