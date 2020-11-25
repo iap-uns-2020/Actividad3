@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class GUI : MonoBehaviour
 {
     public TimerGUI timerGUI;
-    public BoardGUI boardGUI;
     public Button leftArrow;
     public Button rightArrow;
     public Button buttonLevel;
@@ -18,18 +17,12 @@ public class GUI : MonoBehaviour
     private ICurrentLevelManagerPresenter currentLevelManagerPresenter;
 
 
+
     void Start(){
         storageManagerPresenter = new LevelStorageManagerPresenter();
         currentLevelManagerPresenter = new CurrentLevelManagerPresenter();
         cantNiveles = storageManagerPresenter.LevelCounter();
         SelectFirstLevel();
-    }
-
-    private void SelectFirstLevel(){
-        if(cantNiveles>0){
-            currentLevel = 1;
-            levelCounterText.text = "Level "+currentLevel;   
-        }
     }
 
     public void SelectNextLevel(){   
@@ -47,17 +40,28 @@ public class GUI : MonoBehaviour
     }
 
 
-    public void ChangeScene(){
+
+    private void SelectFirstLevel(){
+        if(cantNiveles>0){
+            currentLevel = 1;
+            levelCounterText.text = "Level "+currentLevel;   
+        }
+    }
+
+
+    private void ChangeScene(){
         SceneManager.LoadScene(1);
     }
 
-    public void NotifyTimer(){
+    private void NotifyTimer(){
         timerGUI.SetLevel(currentLevel);
     }
 
-    public void SetSelectedLevel(){
+    private void SetSelectedLevel(){
         currentLevelManagerPresenter.SetCurrentLevel(currentLevel);
     }
+
+
 
 
 }
