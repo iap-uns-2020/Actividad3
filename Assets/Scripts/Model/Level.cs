@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 
 public class Level : ILevel{
+	private const char SEPARATOR = '#';
 	private char[,] map; 
 	private ILevelStorageManager levelStorageManager;
 	private string levelToPlay;
@@ -11,15 +12,13 @@ public class Level : ILevel{
 
 	public Level(){
 		levelStorageManager = new LevelStorageManager();
-		//PlayerPrefs.DeleteAll();
-		//levelStorageManager.Save("10#10#wwwwwwwwwwwhfffhfffwwfhfhfhffwwffhffffwwwfwwwfwfwwwfwfwfwfwwwgwfwfwfwwwwwhwwwfwwwbffffffwwwwwwwwwwww");
-	  	
 	}
 
 
 
 	public void Load(int toLoad){
 		ParseLevelParameters(toLoad);
+		Debug.Log(levelToPlay);
 		map = new char[rows,cols];
 		int k=0;
 		for(int i=0; i<rows; i++){
@@ -32,7 +31,7 @@ public class Level : ILevel{
 
 	private void ParseLevelParameters(int levelNumber){
 		string levelCode = levelStorageManager.Get(levelNumber);
-		string[] mapCodeSplitted = levelCode.Split('#');
+		string[] mapCodeSplitted = levelCode.Split(SEPARATOR);
 		rows = Int16.Parse(mapCodeSplitted[0]);
 		cols = Int16.Parse(mapCodeSplitted[1]);
 		levelToPlay = mapCodeSplitted[2];

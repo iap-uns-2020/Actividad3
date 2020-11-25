@@ -34,6 +34,7 @@ public class QRCodeReader : MonoBehaviour, IQRCodeReader{
     		if (result != null) {
     			levelStorageManagerPresenter.Save(stringCompression.Decompress(result.Text));
      			textField.text = NEWLEVELADDEDMSG;
+     			camTexture.Stop();
     		}  	
     	}catch(Exception ex) { Debug.LogWarning (ex.Message); }
 	}

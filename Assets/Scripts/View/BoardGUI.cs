@@ -12,20 +12,19 @@ public class BoardGUI : MonoBehaviour
 
     private SceneObjectManager sceneObjectManager;
     private ILevelManagerPresenter levelManagerPresenter;
+    private ILevelStorageManagerPresenter levelStorageManagerPresenter;
 
 
-    void Start()
-    {
-
+    void Start(){
         levelManagerPresenter = new LevelManagerPresenter(this,new Level());
+        levelStorageManagerPresenter = new LevelStorageManagerPresenter();
         sceneObjectManager = new SceneObjectManager();
-        levelManagerPresenter.Load(1);
-        CreateBoard();
-
+        StartLevel(levelStorageManagerPresenter.GetCurrentLevel());
     }
 
-    public void Initiate(int levelNumber){
-
+    public void StartLevel(int level){
+        levelManagerPresenter.Load(level);
+        CreateBoard(); 
     }
 
     public void CreateBoard()
@@ -36,7 +35,7 @@ public class BoardGUI : MonoBehaviour
 
 
         plane.transform.localScale = new Vector3(rows/10, 1, cols/10);
-        plane.transform.position = new Vector3(rows / 2, 0, cols/2);
+        plane.transform.position = new Vector3(rows / 2, -0.5f, cols/2);
         camera.transform.position = new Vector3(rows / 2, 20, cols / 2);
 
         int k = 0;
@@ -45,6 +44,9 @@ public class BoardGUI : MonoBehaviour
 
             	if(sceneObjectManager.Exists(levelToPlay[k])){
             		SceneObject current = sceneObjectManager.GetRawSceneObject(levelToPlay[k]);
+                    if(levelToPlay[k]=='b')
+                    current.Place(new Vector3(i,1,j));  
+                    else
                	 	current.Place(new Vector3(i,0,j));	
             	}
 

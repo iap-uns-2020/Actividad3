@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeStorageManager : ITimeStorageManager{
-	public Time Get(){
-		return new Time();
+	private const string TIMEKEY = "times";
+
+	public string Get(int level){
+		string timeKey = TIMEKEY+level;
+		return PlayerPrefs.GetString(timeKey);
 	}
 
-	public void Save(Time time){
-		
+	public void Save(int level, TimeSpan timeSpan){
+		string timeKey = TIMEKEY+level;
+		PlayerPrefs.SetString(timeKey,timeSpan.ToString());
 	}
 }
