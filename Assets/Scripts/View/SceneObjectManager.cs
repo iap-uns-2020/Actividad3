@@ -2,26 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneObjectManager : MonoBehaviour
-{
+public class SceneObjectManager{
+    private Dictionary<char,SceneObject> sceneObjectDictionary = new Dictionary<char,SceneObject>(){
+        {'w', new Wall()},
+        {'b', new Ball()},
+        {'h', new Hole()},
+        {'g', new Goal()},
+    };
 
-    public void Create(char sceneObject, Vector3 position)
-    {
-        switch (sceneObject)
-        {
-            case 'm':
-                new Wall(position);
-                break;
-            case 'p':
-                //new Ball(position);
-                break;
-            case 's':
-                //new Hole(position);
-                break;
-            case 'h':
-                //new Goal(position);
-                break;
-        }
-
+    public SceneObject GetRawSceneObject(char type){
+        return sceneObjectDictionary[type];
     }
 }

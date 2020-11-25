@@ -13,6 +13,10 @@ public class LevelManagerPresenter : ILevelManagerPresenter
         board = view;
     }
 
+    public void Load(int levelNumber){
+        levelManager.Load(levelNumber);
+    }
+
     public int GetRows()
     {
         return levelManager.GetRows();

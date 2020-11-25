@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : SceneObject
-{
-    public Wall() : base("wall")
-    {
+public class Ball : SceneObject{
+	public Ball() : base("ball"){
+	
+	}
 
-    }
 }
