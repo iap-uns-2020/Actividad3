@@ -13,4 +13,8 @@ public class SceneObjectManager{
     public SceneObject GetRawSceneObject(char type){
         return sceneObjectDictionary[type];
     }
+
+    public bool Exists(char type){
+    	return sceneObjectDictionary.ContainsKey(type);
+    }
 }

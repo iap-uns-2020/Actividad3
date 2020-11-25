@@ -43,7 +43,7 @@ public class BoardGUI : MonoBehaviour
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < cols; j++){
 
-            	if(levelToPlay[k]!='f'){
+            	if(sceneObjectManager.Exists(levelToPlay[k])){
             		SceneObject current = sceneObjectManager.GetRawSceneObject(levelToPlay[k]);
                	 	current.Place(new Vector3(i,0,j));	
             	}

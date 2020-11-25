@@ -11,7 +11,7 @@ public class Level : ILevel{
 
 	public Level(){
 		levelStorageManager = new LevelStorageManager();
-		//levelStorageManager.Save("8#8#wwwwwwwwwffffffwwfhffffwwffwwwfwwfgwfffwwwwwfffwwbfffffwwwwwwwww");
+		//levelStorageManager.Save("10#10#wwwwwwwwwwwhfffhfffwwfhfhfhffwwffhffffwwwfwwwfwfwwwfwfwfwfwwwgwfwfwfwwwwwhwwwfwwwbffffffwwwwwwwwwwww");
 	  	//PlayerPrefs.DeleteAll();
 	}
 
