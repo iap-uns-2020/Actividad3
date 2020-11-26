@@ -24,14 +24,25 @@ public class TimerGUI : MonoBehaviour{
         finnishTime = System.DateTime.Now;
     }
 
-    public void ShowTimeSpendInLevel()
+    public void CheckIfExceedBestTime()
     {
-        TimeSpan duration = startTime - finnishTime;
-        timeStorageManagerPresenter.Save(currentLevel,duration);
-        textTime.text = duration.ToString();
+        TimeSpan currentTime = startTime - finnishTime;
+        string bestTimeSaved = timeStorageManagerPresenter.Get(currentLevel);
+        TimeSpan bestTime = TimeSpan.Parse(bestTimeSaved);
+        if (bestTime < currentTime)
+        {
+            timeStorageManagerPresenter.Save(currentLevel, currentTime);
+            ShowTimeSpendInLevel(currentTime);
+        }
+    }
+
+    public void ShowTimeSpendInLevel(TimeSpan currentTime)
+    {
+        textTime.text = currentTime.ToString();
     }
     
-    public void SetLevel(int level){
+    public void SetLevel(int level)
+    {
     	currentLevel = level;
     }
 

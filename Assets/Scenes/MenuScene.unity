@@ -2119,7 +2119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerGUI: {fileID: 57901940}
-  boardGUI: {fileID: 0}
   leftArrow: {fileID: 869027785}
   rightArrow: {fileID: 1584377325}
   buttonLevel: {fileID: 724474124}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Accelerometer
+public class Accelerometer : IControlPlayer
 {
     public Vector3 UpdateControlPlayer()
     {

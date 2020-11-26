@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class PlayerMoves : MonoBehaviour
 {
-    public bool posicion_plana;
     private Rigidbody rb;
 
     private float lastMovementInX;
@@ -14,12 +14,15 @@ public class PlayerMoves : MonoBehaviour
 
     public Accelerometer accelerometer;
 
+    private CollisionsManager collisionsManager;
+
+
     void Start()
     {
 
         accelerometer = new Accelerometer();
+        collisionsManager = new CollisionsManager();
         rb = GetComponent<Rigidbody>();
-        posicion_plana = true;
         Screen.autorotateToPortrait = false;
         Screen.autorotateToLandscapeLeft = false;
         Screen.autorotateToLandscapeRight = false;
@@ -36,7 +39,6 @@ public class PlayerMoves : MonoBehaviour
     private void GetControlPlayerUpdate()
     {
         Vector3 movement = accelerometer.UpdateControlPlayer();
-        //movement = Quaternion.Euler(90, 0, 0) * movement;
 
         float actualMovementInX = -movement.y;
         float actualMovementInZ = movement.x;
@@ -55,6 +57,10 @@ public class PlayerMoves : MonoBehaviour
             MoveInZ(actualMovementInZ, actualMovementInY);
             lastMovementInZ = actualMovementInZ;
         }
+
+        int differentialMovementInX = Mathf.RoundToInt(lastMovementInX - actualMovementInX);
+        int differentialMovementInZ = Mathf.RoundToInt(lastMovementInZ - actualMovementInZ);
+        collisionsManager.UpdatePlayerPosition(differentialMovementInX,differentialMovementInZ);
     }
 
     public void MoveInX(float actualMovementInX, float actualMovementInY)
