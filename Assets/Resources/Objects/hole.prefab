@@ -107,3 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c3093d2c1e88e478a328487f3fa129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winPanel: {fileID: 735425648056915885, guid: bdbb762cf7cb60d429ba29f18daeb54f, type: 3}
+  losePanel: {fileID: 6035272573901058635, guid: 10d35fa27eaea0748a8df2d77c4b3dbb,
+    type: 3}
