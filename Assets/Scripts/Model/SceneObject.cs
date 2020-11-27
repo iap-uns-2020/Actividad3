@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneObject
+public abstract class SceneObject
 {
 	private GameObject gameObject;
-	private string model;
+    private GameObject ball;
+    private string model;
 	private string theme;
     public SceneObject(string model){
     	this.model = model;
@@ -19,8 +20,17 @@ public class SceneObject
     public void Place(Vector3 position){
     	Quaternion randomRotation = Quaternion.Euler(0,0, 0);
         gameObject = MonoBehaviour.Instantiate(Resources.Load("Objects/"+model+theme), position, randomRotation) as GameObject;
+        if (string.Compare(this.model, "ball") == 0)
+        {
+            ball = gameObject;
+            Debug.Log("comparacion pelota");
+        }
     }
 
-
+    public void DestroyBall()
+    {
+        MonoBehaviour.Destroy(ball);
+        Debug.Log("llegue a destroy ball");
+    }
 
 }

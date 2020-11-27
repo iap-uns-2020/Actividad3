@@ -11,7 +11,6 @@ public class SceneObjectCollided : MonoBehaviour, Collidable
 
     void Start(){
         CollisionDictionary = new CollisionDictionary();
-        CollisionDictionary.SetMessages();
     }
 
     public void ActionObjectCollided(){
