@@ -8,6 +8,8 @@ public class LevelStorageManager : ILevelStorageManager{
 	private const string LEVELCOUNTKEY = "quantity";
 		
 	public void Save(string upcomingLevel){
+
+		PlayerPrefs.DeleteAll();
 		Debug.Log(upcomingLevel);
 		int levelCount = PlayerPrefs.GetInt(LEVELCOUNTKEY);
 

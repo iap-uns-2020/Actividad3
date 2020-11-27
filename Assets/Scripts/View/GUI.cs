@@ -20,6 +20,7 @@ public class GUI : MonoBehaviour
 
     void Start(){
         storageManagerPresenter = new LevelStorageManagerPresenter();
+        storageManagerPresenter.Save("10#10#wwwwwwwwwwwfwffffffwwfffhffffwwffffffffwwffffffffwwffhfhfffwwffffffffwwfffffffbwwgwfffffwwwwwwwwwwww");
         currentLevelManagerPresenter = new CurrentLevelManagerPresenter();
         cantNiveles = storageManagerPresenter.LevelCounter();
         SelectFirstLevel();

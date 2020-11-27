@@ -12,7 +12,10 @@ public class PlayerMoves : MonoBehaviour
     private float lastMovementInY;
     private float lastMovementInZ;
 
-    public Accelerometer accelerometer;
+    private float  differentialMovementInX = 0f;
+    private float differentialMovementInZ = 0f;
+
+    private Accelerometer accelerometer;
 
     private CollisionsManager collisionsManager;
 
@@ -20,21 +23,77 @@ public class PlayerMoves : MonoBehaviour
     void Start()
     {
 
-        accelerometer = new Accelerometer();
-        collisionsManager = new CollisionsManager();
         rb = GetComponent<Rigidbody>();
+        /*accelerometer = new Accelerometer();
+        collisionsManager = new CollisionsManager();
         Screen.autorotateToPortrait = false;
         Screen.autorotateToLandscapeLeft = false;
         Screen.autorotateToLandscapeRight = false;
         lastMovementInX = 0.0f;
         lastMovementInY = 0.0f;
-        lastMovementInZ = 0.0f;
+        lastMovementInZ = 0.0f;*/
+
     }
 
+    /*void Update()
+    {
+        if(Input.putKeyDown())
+        GetControlPlayerUpdate();
+    }*/
+
+    // Update is called once per frame
     void Update()
     {
-        GetControlPlayerUpdate();
+        if (Input.GetKey(KeyCode.A))
+        {
+            MoveLeft();
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            MoveRight();
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            MoveForward();
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            MoveBackward();                            
+        }
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            Jump();
+        }
     }
+
+
+    void MoveLeft()
+    {
+        rb.velocity += new Vector3(-0.3f, 0, 0);
+    }
+
+    void MoveRight()
+    {
+        rb.velocity += new Vector3(0.3f, 0, 0);
+    }
+
+    void MoveForward()
+    {
+        rb.velocity += new Vector3(0, 0, 0.3f);
+    }
+
+    void MoveBackward()
+    {
+       rb.velocity += new Vector3(0, 0, -0.3f);
+    }
+
+    void Jump()
+    {
+        rb.velocity += new Vector3(0, 0.3f, 0);
+    }
+
+
+    /*
 
     private void GetControlPlayerUpdate()
     {
@@ -44,7 +103,10 @@ public class PlayerMoves : MonoBehaviour
         float actualMovementInZ = movement.x;
         float actualMovementInY = 0.1f;
 
-        if(movement.sqrMagnitude<1)
+        Debug.Log(-movement.y);
+        Debug.Log(movement.x);
+
+        if (movement.sqrMagnitude<1)
         	movement.Normalize();
 
         if (lastMovementInX != actualMovementInX)
@@ -52,15 +114,23 @@ public class PlayerMoves : MonoBehaviour
             MoveInX(actualMovementInX, actualMovementInY);
             lastMovementInX = actualMovementInX;
         }
+
         if (lastMovementInZ != actualMovementInZ)
         {
             MoveInZ(actualMovementInZ, actualMovementInY);
             lastMovementInZ = actualMovementInZ;
         }
 
-        int differentialMovementInX = Mathf.RoundToInt(lastMovementInX - actualMovementInX);
-        int differentialMovementInZ = Mathf.RoundToInt(lastMovementInZ - actualMovementInZ);
-        collisionsManager.UpdatePlayerPosition(differentialMovementInX,differentialMovementInZ);
+        differentialMovementInX += lastMovementInX - actualMovementInX;
+        differentialMovementInZ += lastMovementInZ - actualMovementInZ;
+        int offsetInX = 0;
+        int offsetInZ = 0;
+        if (differentialMovementInX > 0.5)
+            offsetInX = Mathf.RoundToInt(differentialMovementInX);
+        if (differentialMovementInZ > 0.5)
+            offsetInZ = Mathf.RoundToInt(differentialMovementInZ);
+
+        collisionsManager.UpdatePlayerPosition(offsetInX,offsetInZ);
     }
 
     public void MoveInX(float actualMovementInX, float actualMovementInY)
@@ -73,6 +143,8 @@ public class PlayerMoves : MonoBehaviour
     {
         Vector3 v = new Vector3(0.0f, actualMovementInY, actualMovementInZ);
         rb.AddForce(v * 10);
-    }
+    }*/
+
+   
 
 }

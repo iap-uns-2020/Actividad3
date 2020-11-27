@@ -2,13 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
-public class BoardGUI : MonoBehaviour
+public class BoardGUI : MonoBehaviour, IBoardGUI
 {
 
     public GameObject plane;
     public GameObject camera;
+
 
     private SceneObjectManager sceneObjectManager;
     private ILevelManagerPresenter levelManagerPresenter;
@@ -22,6 +24,7 @@ public class BoardGUI : MonoBehaviour
         collisionsManager = new CollisionsManager();
         sceneObjectManager = new SceneObjectManager();
         StartLevel(currentLevelManagerPresenter.GetCurrentLevel());
+        Debug.Log("boardgui");
     }
 
     public void StartLevel(int level){
@@ -39,7 +42,6 @@ public class BoardGUI : MonoBehaviour
         plane.transform.position = new Vector3(rows / 2, -1f, cols/2);
         camera.transform.position = new Vector3(rows / 2, 20, cols / 2);
 
-        collisionsManager.setSizeOfMap(rows, cols);
 
         int k = 0;
         for (int i = 0; i < rows; i++){
@@ -47,10 +49,6 @@ public class BoardGUI : MonoBehaviour
 
             	if(sceneObjectManager.Exists(levelToPlay[k])){
             		SceneObject current = sceneObjectManager.GetRawSceneObject(levelToPlay[k]);
-                    collisionsManager.SetObjectPosition(levelToPlay[k], i, j);
-                    if (levelToPlay[k]=='b')
-                    current.Place(new Vector3(i,1,j));  
-                    else
                	 	current.Place(new Vector3(i,0,j));	
             	}
 
@@ -58,4 +56,5 @@ public class BoardGUI : MonoBehaviour
             }
         }
     }
+
 }
