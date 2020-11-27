@@ -6,19 +6,22 @@ using UnityEngine.UI;
 public class SceneObjectCollided : MonoBehaviour, Collidable
 {
     private GameManagerGUI gameManagerGUI;
-    public GameObject winPanel;
-    public GameObject losePanel;
+    private CollisionDictionary CollisionDictionary;
+    public GameObject[] panels;
+
+    void Start(){
+        CollisionDictionary = new CollisionDictionary();
+        CollisionDictionary.SetMessages();
+    }
 
     public void ActionObjectCollided(){
-        MessagesCollisionDictionary messagesCollisionDictionary = new MessagesCollisionDictionary();
         string nameObjectCollided = transform.name;
-        Dictionary<string, string> messages = messagesCollisionDictionary.SetMessages();
-        string messageCollision = messagesCollisionDictionary.GetMessage(nameObjectCollided);
-        
-        if(string.Compare(messageCollision, "You Won!")==0)
+        int panelCollisionNumber = CollisionDictionary.GetMessage(nameObjectCollided);
+        Instantiate(panels[panelCollisionNumber]);
+        /*if(string.Compare(messageCollision, "You Won!")==0)
             Instantiate(winPanel);
         else
-            Instantiate(losePanel);
+            Instantiate(losePanel);*/
         
         //gameManagerGUI.GameResult(messageCollision);
 
