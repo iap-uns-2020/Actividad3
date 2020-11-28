@@ -2,27 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Collisions.Presenter;
 
-public class SceneObjectCollided : MonoBehaviour, Collidable
-{
-    private GameManagerGUI gameManagerGUI;
-    private CollisionDictionary CollisionDictionary;
-    public GameObject[] panels;
+namespace Collisions.View{
+    public class SceneObjectCollided : MonoBehaviour, Collidable{
+        private ICollisionManagerPresenter collisionManagerPresenter;
+        public GameObject[] panels;
 
-    void Start(){
-        CollisionDictionary = new CollisionDictionary();
-    }
+        void Start(){
+            collisionManagerPresenter = new CollisionManagerPresenter();
+        }
 
-    public void ActionObjectCollided(){
-        string nameObjectCollided = transform.name;
-        int panelCollisionNumber = CollisionDictionary.GetMessage(nameObjectCollided);
-        Instantiate(panels[panelCollisionNumber]);
-        /*if(string.Compare(messageCollision, "You Won!")==0)
-            Instantiate(winPanel);
-        else
-            Instantiate(losePanel);*/
-        
-        //gameManagerGUI.GameResult(messageCollision);
-
-    }
+        public void ActionObjectCollided(){
+            string nameObjectCollided = transform.name;
+            int panelCollisionNumber = collisionManagerPresenter.GetPanelNumber(nameObjectCollided);
+            GameObject gameObject = Instantiate(panels[panelCollisionNumber]);
+        }
+    }    
 }
+

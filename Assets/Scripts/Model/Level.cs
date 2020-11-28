@@ -31,7 +31,6 @@ public class Level : ILevel{
 		string levelCode = levelStorageManager.Get(levelNumber);
 		string[] mapCodeSplitted = levelCode.Split(SEPARATOR);
 		rows = Int16.Parse(mapCodeSplitted[0]);
-		Debug.Log(rows);
 		cols = Int16.Parse(mapCodeSplitted[1]);
 		levelToPlay = mapCodeSplitted[2];
 	}

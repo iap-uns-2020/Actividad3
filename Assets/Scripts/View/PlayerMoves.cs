@@ -15,17 +15,16 @@ public class PlayerMoves : MonoBehaviour
     private float  differentialMovementInX = 0f;
     private float differentialMovementInZ = 0f;
 
-    private Accelerometer accelerometer;
+    private IControlPlayerPresenter controlPlayerPresenter;
 
-    private CollisionsManager collisionsManager;
+
 
 
     void Start()
     {
 
         rb = GetComponent<Rigidbody>();
-        /*accelerometer = new Accelerometer();
-        collisionsManager = new CollisionsManager();
+        /*controlPlayerPresenter = new ControlPlayerPresenter();
         Screen.autorotateToPortrait = false;
         Screen.autorotateToLandscapeLeft = false;
         Screen.autorotateToLandscapeRight = false;
@@ -97,7 +96,7 @@ public class PlayerMoves : MonoBehaviour
 
     private void GetControlPlayerUpdate()
     {
-        Vector3 movement = accelerometer.UpdateControlPlayer();
+        Vector3 movement = controlPlayerPresenter.UpdateControlPlayer();
 
         float actualMovementInX = -movement.y;
         float actualMovementInZ = movement.x;
@@ -130,7 +129,6 @@ public class PlayerMoves : MonoBehaviour
         if (differentialMovementInZ > 0.5)
             offsetInZ = Mathf.RoundToInt(differentialMovementInZ);
 
-        collisionsManager.UpdatePlayerPosition(offsetInX,offsetInZ);
     }
 
     public void MoveInX(float actualMovementInX, float actualMovementInY)

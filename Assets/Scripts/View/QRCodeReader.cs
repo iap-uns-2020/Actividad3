@@ -7,6 +7,7 @@ using ZXing;
 using ZXing.QrCode;
 using Compression;
 
+
 public class QRCodeReader : MonoBehaviour, IQRCodeReader{
 	private const string NEWLEVELADDEDMSG = "NUEVO NIVEL AGREGADO!";
 	private ILevelStorageManagerPresenter levelStorageManagerPresenter;

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TimeRegister.View;
 
-public class GUI : MonoBehaviour
-{
+public class GUI : MonoBehaviour{
     public TimerGUI timerGUI;
     public Button leftArrow;
     public Button rightArrow;
@@ -49,7 +49,6 @@ public class GUI : MonoBehaviour
         }
     }
 
-
     private void ChangeScene(){
         SceneManager.LoadScene(1);
     }
@@ -61,9 +60,5 @@ public class GUI : MonoBehaviour
     private void SetSelectedLevel(){
         currentLevelManagerPresenter.SetCurrentLevel(currentLevel);
     }
-
-
-
-
 }
 
