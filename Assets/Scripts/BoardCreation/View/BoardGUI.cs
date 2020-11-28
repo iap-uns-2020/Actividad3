@@ -1,11 +1,12 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
 using BoardCreation.Presenter;
 using BoardCreation.Model;
+using LevelCreation.Presenter;
+using LevelCreation.Model;
 
 namespace BoardCreation.View{
 	public class BoardGUI : MonoBehaviour, IBoardGUI{

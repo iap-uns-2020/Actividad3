@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace TimeRegister.Presenter{
-	public interface ITimeStorageManagerPresenter{
+	public interface ITimeStorageManagerPresenter
+	{
+		void RegisterStartTime();
 		void Save(int level, TimeSpan time);
 		string Get(int level);
 	}	
