@@ -87,9 +87,6 @@ namespace PlayerMovement.View
             float actualMovementInX = -movement.y;
             float actualMovementInZ = movement.x;
 
-            Debug.Log(-movement.y);
-            Debug.Log(movement.x);
-
             if (movement.sqrMagnitude < 1)
                 movement.Normalize();
 

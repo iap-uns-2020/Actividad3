@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 709687781732579525}
   - component: {fileID: 400752400262986766}
   - component: {fileID: 1125706057169486423}
+  - component: {fileID: 906378735050469472}
   m_Layer: 0
   m_Name: goal
   m_TagString: Untagged
@@ -88,9 +89,24 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70589740432699848}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &906378735050469472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70589740432699848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c3093d2c1e88e478a328487f3fa129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panels:
+  - {fileID: 4445931801025076781, guid: 4d7ba634a1ac14545adb9d88922cb2f1, type: 3}
+  - {fileID: 5708147324870424762, guid: 20b8d82c2214fe0438865b4e9b6caed2, type: 3}

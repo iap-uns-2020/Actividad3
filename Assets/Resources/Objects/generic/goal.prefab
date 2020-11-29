@@ -108,5 +108,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panels:
-  - {fileID: 5320886265928486404, guid: bdbb762cf7cb60d429ba29f18daeb54f, type: 3}
-  - {fileID: 1800103286563367588, guid: 10d35fa27eaea0748a8df2d77c4b3dbb, type: 3}
+  - {fileID: 4413896042192742100, guid: 248ef1c2386d8f145af8a653be339bd9, type: 3}
+  - {fileID: 4756970817534326410, guid: 89d916375ba3f5c47b8e1bc942604f04, type: 3}
