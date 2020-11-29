@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TimeRegister.View;
+using LevelStorage.Presenter;
 using LevelCreation.Presenter;
 
 namespace LevelCreation.View
@@ -20,14 +21,10 @@ namespace LevelCreation.View
         private ILevelStorageManagerPresenter storageManagerPresenter;
         private ICurrentLevelManagerPresenter currentLevelManagerPresenter;
 
-
-
         void Start()
         {
             storageManagerPresenter = new LevelStorageManagerPresenter();
             currentLevelManagerPresenter = new CurrentLevelManagerPresenter();
-            cantNiveles = storageManagerPresenter.LevelCounter();
-            SelectFirstLevel();
         }
 
         public void SelectNextLevel()
@@ -57,6 +54,10 @@ namespace LevelCreation.View
                 currentLevel = 1;
                 levelCounterText.text = "Level " + currentLevel;
             }
+        }
+
+        public void UpdateLevelCounter(){
+          cantNiveles = storageManagerPresenter.LevelCounter();  
         }
 
         private void ChangeScene()

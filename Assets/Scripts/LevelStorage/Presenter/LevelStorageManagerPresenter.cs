@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using LevelCreation.Model;
+using LevelStorage.Model;
 
-namespace LevelCreation.Presenter
+namespace LevelStorage.Presenter
 {
     public class LevelStorageManagerPresenter : ILevelStorageManagerPresenter
     {
@@ -28,6 +28,10 @@ namespace LevelCreation.Presenter
         public string Get(int level)
         {
             return levelStorageManager.Get(level);
+        }
+
+        public void Preload(){
+            levelStorageManager.Preload();
         }
     }
 }

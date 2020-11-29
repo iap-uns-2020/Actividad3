@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IQRCodeReader{
-	void DecodeQR();
+namespace LevelStorage.View{
+	public interface ILevelPreloader{}	
 }
+
