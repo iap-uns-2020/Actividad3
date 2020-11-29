@@ -49,6 +49,8 @@ namespace PlayerMovement.View
             {
                 Jump();
             }
+
+            GetControlPlayerUpdate();
         }
 
 

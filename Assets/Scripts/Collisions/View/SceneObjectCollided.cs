@@ -7,6 +7,8 @@ using Collisions.Presenter;
 
 namespace Collisions.View{
     public class SceneObjectCollided : MonoBehaviour, Collidable{
+
+        private const int GOALID = 0;
         private ICollisionManagerPresenter collisionManagerPresenter;
         public GameObject[] panels;
         private TimeStorageManager timeStorageManager;
@@ -20,7 +22,7 @@ namespace Collisions.View{
             string nameObjectCollided = transform.name;
             int panelCollisionNumber = collisionManagerPresenter.GetPanelNumber(nameObjectCollided);
             GameObject gameObject = Instantiate(panels[panelCollisionNumber]);
-            if(panelCollisionNumber==1)
+            if(panelCollisionNumber==GOALID)
                 timeStorageManager.RegisterFinnishTime();
         }
     }    

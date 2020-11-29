@@ -24,7 +24,6 @@ namespace TimeRegister.Model{
 		{
 			TimeSpan startTime = System.DateTime.Now.TimeOfDay;
 			PlayerPrefs.SetString("startTime", startTime.ToString());
-			Debug.Log(startTime);
 		}
 
 		public void RegisterFinnishTime()
@@ -38,25 +37,17 @@ namespace TimeRegister.Model{
 			TimeSpan startTime = TimeSpan.Parse(PlayerPrefs.GetString("startTime"));
 			TimeSpan currentTime = finnishTime - startTime;
 			TimeSpan bestTime;
-			Debug.Log("lalalala :" + Get(1));
-			string bestTimeSaved = Get(1);
-			Debug.Log("besttimeSaved: " + bestTimeSaved);
-			if (string.Compare(bestTimeSaved,"")==0)
+			string bestTimeSaved = Get(currentLevel);
+			if (string.IsNullOrEmpty(bestTimeSaved))
 			{
 				Save(currentLevel, currentTime);
-				Debug.Log("save arriba"+Get(1));
-				Debug.Log("is null ");
 			}
 			else
 			{
 				bestTime = TimeSpan.Parse(bestTimeSaved);
-				Debug.Log("best time " + bestTime);
-				Debug.Log("currentTime: " + currentTime);
 				if (currentTime < bestTime)
 				{
 					Save(currentLevel, currentTime);
-					Debug.Log("entre al chequeo ");
-					Debug.Log("save abajo"+Get(1));
 				}
 			}
 		}
@@ -67,21 +58,14 @@ namespace TimeRegister.Model{
 			string levelTime = "";
 			if (PlayerPrefs.HasKey(timeKey))
 			{
-				Debug.Log("entre a has key"+timeKey);
 				levelTime = PlayerPrefs.GetString(timeKey);
 			}
-			else Debug.Log("No entre a has key" + timeKey);
-			Debug.Log("time leveel: "+levelTime);
 			return levelTime;
 		}
 
 		public void Save(int level, TimeSpan timeSpan){
-			Debug.Log(level);
-			Debug.Log(timeSpan);
 			string timeKey = TIMEKEY+level;
 			PlayerPrefs.SetString(timeKey,timeSpan.ToString());
-			Debug.Log("holaa que tal"+timeSpan.ToString());
-			Debug.Log(timeKey);
 		}
 	}	
 }
