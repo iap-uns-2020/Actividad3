@@ -7,6 +7,7 @@ using BoardCreation.Presenter;
 using BoardCreation.Model;
 using LevelCreation.Presenter;
 using LevelCreation.Model;
+using SkinManager;
 
 namespace BoardCreation.View{
 	public class BoardGUI : MonoBehaviour, IBoardGUI{
@@ -15,14 +16,16 @@ namespace BoardCreation.View{
 	    private ISceneObjectManagerPresenter sceneObjectManagerPresenter;
 	    private ILevelManagerPresenter levelManagerPresenter;
 	    private ICurrentLevelManagerPresenter currentLevelManagerPresenter;
-	    private int currentLevel;
+        private IDictionarySkin dictionarySkin;
+        private int currentLevel;
 
 	    void Start(){
 	        levelManagerPresenter = new LevelManagerPresenter(this,new Level());
 	        currentLevelManagerPresenter = new CurrentLevelManagerPresenter();
 	        sceneObjectManagerPresenter = new SceneObjectManagerPresenter();
 	        currentLevel = currentLevelManagerPresenter.GetCurrentLevel();
-	        StartLevel(currentLevel);    
+            dictionarySkin = new DictionarySkin();
+            StartLevel(currentLevel);    
 	    }
 
 	    public void StartLevel(int level){
@@ -46,7 +49,11 @@ namespace BoardCreation.View{
 
 	            	if(sceneObjectManagerPresenter.Exists(levelToPlay[k])){
 	                    SceneObject current = sceneObjectManagerPresenter.GetRawSceneObject(levelToPlay[k]);
-	                    current.Place(new Vector3(i, 0, j));      
+                        if (dictionarySkin.Exists(currentLevel))
+                        {
+                            current.SetTheme(dictionarySkin.GetNameSkin(currentLevel));
+                        }
+                        current.Place(new Vector3(i, 0, j));      
 	                }
 	                    k++;
 	            }
