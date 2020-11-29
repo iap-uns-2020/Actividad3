@@ -24,6 +24,7 @@ namespace LevelCreation.View
         void Start()
         {
             storageManagerPresenter = new LevelStorageManagerPresenter();
+            UpdateLevelCounter();
             currentLevelManagerPresenter = new CurrentLevelManagerPresenter();
         }
 
