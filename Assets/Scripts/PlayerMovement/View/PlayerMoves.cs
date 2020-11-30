@@ -7,7 +7,7 @@ using PlayerMovement.Presenter;
 
 namespace PlayerMovement.View
 {
-    public class PlayerMoves : MonoBehaviour
+    public class PlayerMoves : MonoBehaviour, IPlayerMoves
     {
         private const float MOVEMENTINY = 0.1f;
         private const int VELOCITY = 10;
@@ -31,19 +31,19 @@ namespace PlayerMovement.View
         {
             if (Input.GetKey(KeyCode.A))
             {
-                MoveLeft();
+                MoveBackward();
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                MoveRight();
+                MoveForward();
             }
             else if (Input.GetKey(KeyCode.W))
             {
-                MoveForward();
+                MoveLeft();
             }
             else if (Input.GetKey(KeyCode.S))
             {
-                MoveBackward();
+                MoveRight();
             }
             else if (Input.GetKey(KeyCode.Space))
             {

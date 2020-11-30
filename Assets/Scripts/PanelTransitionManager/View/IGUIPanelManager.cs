@@ -8,6 +8,5 @@ namespace PanelTransitionManager.View
     {
         void PlayButtonListener();
         void AddNewLevelListener();
-        void NewPanel(GameObject panel);
     }
 }

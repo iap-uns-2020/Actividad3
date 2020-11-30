@@ -11,18 +11,21 @@ namespace LevelCreation.View
 {
     public class LevelSelection : MonoBehaviour, ILevelSelection
     {
-        public TimerGUI timerGUI;
+        public ITimerGUI timerGUI;
         public Button leftArrow;
         public Button rightArrow;
         public Button buttonLevel;
         public Text levelCounterText;
+        public GameObject ITimerGUI;
         private int currentLevel;
         private int cantNiveles;
         private ILevelStorageManagerPresenter storageManagerPresenter;
         private ICurrentLevelManagerPresenter currentLevelManagerPresenter;
+        
 
         void Start()
         {
+        	timerGUI = ITimerGUI.GetComponent<ITimerGUI>();
             storageManagerPresenter = new LevelStorageManagerPresenter();
             UpdateLevelCounter();
             currentLevelManagerPresenter = new CurrentLevelManagerPresenter();

@@ -5,7 +5,7 @@ using BoardCreation.Model;
 
 namespace BoardCreation.Presenter{
 	public class SceneObjectManagerPresenter : ISceneObjectManagerPresenter{
-		private SceneObjectManager sceneObjectManager;
+		private ISceneObjectManager sceneObjectManager;
 
 		public SceneObjectManagerPresenter(){
 			sceneObjectManager = new SceneObjectManager();

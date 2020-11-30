@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace QRCodeReader.View{
+namespace QRCodeTranslation.View{
 	public interface IQRCodeReader{
 		void DecodeQR();
 	}	

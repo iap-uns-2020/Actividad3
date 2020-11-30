@@ -39,7 +39,7 @@ namespace BoardCreation.View{
 	        string levelToPlay = boardManagerPresenter.GetLevelToPlay();
 
 	        //plane.transform.localScale = new Vector3(rows/10.0f, 1, cols/10.0f);
-	        plane.transform.position = new Vector3(rows / 2, -1f, cols/2);
+	        plane.transform.position = new Vector3(rows / 2, 0f, cols/2);
 	        camera.transform.position = new Vector3(rows / 2, 20, cols / 2);
 
 
@@ -49,11 +49,11 @@ namespace BoardCreation.View{
 
 	            	if(sceneObjectManagerPresenter.Exists(levelToPlay[k])){
 	                    SceneObject current = sceneObjectManagerPresenter.GetRawSceneObject(levelToPlay[k]);
-                        if (dictionarySkin.Exists(currentLevel))
-                        {
+                        if (dictionarySkin.Exists(currentLevel)){
                             current.SetTheme(dictionarySkin.GetNameSkin(currentLevel));
                         }
-                        current.Place(new Vector3(i, 0, j));      
+                        current.Place(i,j);	
+                            
 	                }
 	                    k++;
 	            }

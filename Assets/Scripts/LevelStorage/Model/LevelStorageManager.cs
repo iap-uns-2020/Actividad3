@@ -7,7 +7,7 @@ namespace LevelStorage.Model{
 	public class LevelStorageManager : ILevelStorageManager{
 		private const string LEVELSKEY = "levels";
 		private const string LEVELCOUNTKEY = "quantity";
-		private const string FIRSTLEVEL = "6#4#wwwwwfgwwffwwffwwbfwwwww";
+		private const string FIRSTLEVEL = "11#12#wwwwwwwwwwwwwffffffffffwwfwffwwwwwfwwfwfwffhwwfwwfwwwwffwhfwwffffwgfhffwwfwwfwfffffwwfwffffhfffwwfwfhffffffwwbfffffffffwwwwwwwwwwwww";
 		private const string SECONDLEVEL = "10#8#wwwwwwwwwfffhhhwwfhfffgwwfwwwhhwwfffhhhwwfhffffwwhfhhffwwwwwwffwwbfffffwwwwwwwww";
 		private const string THIRDLEVEL = "14#8#wwwwwwwwwffffffwwfffhwfwwffhfwfwwfhffwfwwffwwwfwwhfwfffwwffwfhfwwfwwwffwwfwgwfhwwfffwffwwwwwwhfwwbfffffwwwwwwwww";
 

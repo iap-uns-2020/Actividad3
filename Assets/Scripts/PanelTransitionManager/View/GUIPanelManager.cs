@@ -33,7 +33,7 @@ namespace PanelTransitionManager.View
 			NewPanel(QRCodeReaderPanel);
 		}
 
-		public void NewPanel(GameObject panel)
+		private void NewPanel(GameObject panel)
 		{
 			panelStack.Peek().SetActive(false);
 			panelStack.Push(panel);

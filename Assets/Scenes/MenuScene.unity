@@ -2183,11 +2183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2596176eae18a6049851bc0d47d59ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerGUI: {fileID: 57901940}
   leftArrow: {fileID: 869027785}
   rightArrow: {fileID: 1584377325}
   buttonLevel: {fileID: 724474124}
   levelCounterText: {fileID: 1943185061}
+  ITimerGUI: {fileID: 57901939}
 --- !u!1 &1843576822
 GameObject:
   m_ObjectHideFlags: 0

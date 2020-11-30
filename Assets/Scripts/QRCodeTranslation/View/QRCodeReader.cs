@@ -8,7 +8,7 @@ using ZXing.QrCode;
 using Compression;
 using LevelStorage.Presenter;
 
-namespace QRCodeReader.View{
+namespace QRCodeTranslation.View{
 	public class QRCodeReader : MonoBehaviour, IQRCodeReader{
 		private const string NEWLEVELADDEDMSG = "NUEVO NIVEL AGREGADO!";
 		private ILevelStorageManagerPresenter levelStorageManagerPresenter;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BoardCreation.Model{
 	public class Goal : SceneObject{
-		public Goal() : base("goal"){}
+		public Goal() : base("goalNotCollidable"){}
 	}	
 }
 
