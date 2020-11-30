@@ -2,4 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICollisionManager{}
+namespace Collisions.View
+{
+    public interface ICollisionManager { }
+}

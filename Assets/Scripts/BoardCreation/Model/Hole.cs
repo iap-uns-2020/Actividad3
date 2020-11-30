@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BoardCreation.Model{
 	public class Hole : SceneObject{
-		public Hole() : base("hole"){}
+		public Hole() : base("holeNotCollidable"){}
 	}	
 }
 

@@ -25,6 +25,6 @@ namespace Collisions.View{
             if(panelCollisionNumber==GOALID)
                 timeStorageManager.RegisterFinnishTime();
         }
-    }    
+    }
 }
 
