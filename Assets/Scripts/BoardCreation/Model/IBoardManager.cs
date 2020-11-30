@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LevelCreation.Model
+namespace BoardCreation.Model
 {
-	public interface ILevel
+	public interface IBoardManager
 	{
 		void Load(int level);
 		int GetRows();

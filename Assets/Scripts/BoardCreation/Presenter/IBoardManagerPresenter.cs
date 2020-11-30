@@ -1,7 +1,7 @@
 
-namespace LevelCreation.Presenter
+namespace BoardCreation.Presenter
 {
-	public interface ILevelManagerPresenter
+	public interface IBoardManagerPresenter
 	{
 		void Load(int levelNumber);
 		int GetRows();

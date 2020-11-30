@@ -14,13 +14,13 @@ namespace BoardCreation.View{
 	    public GameObject plane;
 	    public GameObject camera;
 	    private ISceneObjectManagerPresenter sceneObjectManagerPresenter;
-	    private ILevelManagerPresenter levelManagerPresenter;
+	    private IBoardManagerPresenter boardManagerPresenter;
 	    private ICurrentLevelManagerPresenter currentLevelManagerPresenter;
         private IDictionarySkin dictionarySkin;
         private int currentLevel;
 
 	    void Start(){
-	        levelManagerPresenter = new LevelManagerPresenter(this,new Level());
+	        boardManagerPresenter = new BoardManagerPresenter(this,new BoardManager());
 	        currentLevelManagerPresenter = new CurrentLevelManagerPresenter();
 	        sceneObjectManagerPresenter = new SceneObjectManagerPresenter();
 	        currentLevel = currentLevelManagerPresenter.GetCurrentLevel();
@@ -29,14 +29,14 @@ namespace BoardCreation.View{
 	    }
 
 	    public void StartLevel(int level){
-	        levelManagerPresenter.Load(level);
+	        boardManagerPresenter.Load(level);
 	        CreateBoard(); 
 	    }
 
 	    public void CreateBoard(){
-	        int rows = levelManagerPresenter.GetRows();
-	        int cols = levelManagerPresenter.GetCols();
-	        string levelToPlay = levelManagerPresenter.GetLevelToPlay();
+	        int rows = boardManagerPresenter.GetRows();
+	        int cols = boardManagerPresenter.GetCols();
+	        string levelToPlay = boardManagerPresenter.GetLevelToPlay();
 
 	        //plane.transform.localScale = new Vector3(rows/10.0f, 1, cols/10.0f);
 	        plane.transform.position = new Vector3(rows / 2, -1f, cols/2);

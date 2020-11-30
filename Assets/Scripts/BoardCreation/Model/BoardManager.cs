@@ -4,9 +4,9 @@ using UnityEngine;
 using System;
 using LevelStorage.Model;
 
-namespace LevelCreation.Model
+namespace BoardCreation.Model
 {
-	public class Level : ILevel
+	public class BoardManager : IBoardManager
 	{
 		private const char SEPARATOR = '#';
 		private char[,] map;
@@ -14,7 +14,7 @@ namespace LevelCreation.Model
 		private string levelToPlay;
 		private int rows, cols;
 
-		public Level()
+		public BoardManager()
 		{
 			levelStorageManager = new LevelStorageManager();
 

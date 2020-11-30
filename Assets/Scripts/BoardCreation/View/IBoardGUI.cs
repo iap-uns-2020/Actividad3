@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IBoardGUI
+namespace BoardCreation.View
 {
-    void StartLevel(int level);
-    void CreateBoard();
+    public interface IBoardGUI
+    {
+        void StartLevel(int level);
+        void CreateBoard();
+    }
 }
