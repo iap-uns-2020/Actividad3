@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace BoardCreation.Model{
-	public class Hole : SceneObject{
-		public Hole() : base("holeNotCollidable"){}
+	public class Hole : SceneObjectCreator{
+		public Hole() : base("hole"){}
 	}	
 }
 

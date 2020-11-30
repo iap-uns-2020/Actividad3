@@ -11,7 +11,7 @@ namespace BoardCreation.Presenter{
 			sceneObjectManager = new SceneObjectManager();
 		}
 		
-		public SceneObject GetRawSceneObject(char type){
+		public SceneObjectCreator GetRawSceneObject(char type){
 			return sceneObjectManager.GetRawSceneObject(type);
 		}
 

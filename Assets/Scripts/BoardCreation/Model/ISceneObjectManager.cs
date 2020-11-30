@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BoardCreation.Model{
 	public interface ISceneObjectManager{
-		SceneObject GetRawSceneObject(char type);
+		SceneObjectCreator GetRawSceneObject(char type);
 		bool Exists(char type);
 	}	
 }

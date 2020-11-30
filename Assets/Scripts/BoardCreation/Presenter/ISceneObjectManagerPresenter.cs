@@ -5,7 +5,7 @@ using BoardCreation.Model;
 
 namespace BoardCreation.Presenter{
 	public interface ISceneObjectManagerPresenter{
-		SceneObject GetRawSceneObject(char type);
+		SceneObjectCreator GetRawSceneObject(char type);
 		bool Exists(char type);
 	}		
 }

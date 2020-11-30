@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace BoardCreation.Model{
     public class SceneObjectManager : ISceneObjectManager{
-        private Dictionary<char,SceneObject> sceneObjectDictionary = new Dictionary<char,SceneObject>(){
+        private Dictionary<char,SceneObjectCreator> sceneObjectDictionary = new Dictionary<char,SceneObjectCreator>(){
             {'w', new Wall()},
             {'b', new Ball()},
             {'h', new Hole()},
             {'g', new Goal()},
         };
 
-        public SceneObject GetRawSceneObject(char type){
+        public SceneObjectCreator GetRawSceneObject(char type){
             return sceneObjectDictionary[type];
         }
 

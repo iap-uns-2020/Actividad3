@@ -48,11 +48,11 @@ namespace BoardCreation.View{
 	            for (int j = 0; j < cols; j++){
 
 	            	if(sceneObjectManagerPresenter.Exists(levelToPlay[k])){
-	                    SceneObject current = sceneObjectManagerPresenter.GetRawSceneObject(levelToPlay[k]);
+	                    SceneObjectCreator currentSceneObject = sceneObjectManagerPresenter.GetRawSceneObject(levelToPlay[k]);
                         if (dictionarySkin.Exists(currentLevel)){
-                            current.SetTheme(dictionarySkin.GetNameSkin(currentLevel));
+                            currentSceneObject.SetTheme(dictionarySkin.GetNameSkin(currentLevel));
                         }
-                        current.Place(i,j);	
+                        currentSceneObject.Place(i,j);	
                             
 	                }
 	                    k++;
