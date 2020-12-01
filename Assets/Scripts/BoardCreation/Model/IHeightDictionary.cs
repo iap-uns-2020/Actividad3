@@ -6,7 +6,7 @@ namespace BoardCreation.Model
 {
     public interface IHeightDictionary
     {
-        float GetHeight(string objectNotCollidable);
+        float GetHeight(string sceneObjectType);
         bool Exists(string model);
     }
 }

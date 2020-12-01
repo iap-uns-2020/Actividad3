@@ -21,7 +21,6 @@ namespace LevelStorage.Presenter
 
         public void Save(string upcomingLevel)
         {
-            Debug.Log("Llego aca, presenter");
             levelStorageManager.Save(upcomingLevel);
         }
 

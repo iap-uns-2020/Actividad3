@@ -7,6 +7,7 @@ namespace TimeRegister.Presenter{
 	public interface ITimeStorageManagerPresenter
 	{
 		void RegisterStartTime();
+		void RegisterFinnishTime();
 		void Save(int level, TimeSpan time);
 		string Get(int level);
 	}	

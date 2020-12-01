@@ -11,8 +11,8 @@ namespace Collisions.Presenter{
 			collisionDictionary = new CollisionDictionary();
 		}
 
-		public int GetPanelNumber(string objectCollided){
-			return collisionDictionary.GetPanelNumber(objectCollided);
+		public int GetSceneNumber(string objectCollided){
+			return collisionDictionary.GetSceneNumber(objectCollided);
 		}
 	}	
 }

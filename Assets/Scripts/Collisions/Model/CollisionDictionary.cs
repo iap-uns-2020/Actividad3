@@ -9,13 +9,13 @@ namespace Collisions.Model{
 		private const string GOALNAME = "goal(Clone)";
 		private const string HOLENAME = "hole(Clone)";
 
-		private Dictionary<string, int> ObjectsCollision = new Dictionary<string, int>(){
+		private Dictionary<string, int> objectsCollision = new Dictionary<string, int>(){
 			{GOALNAME, WINSCENE},
 			{HOLENAME, LOSESCENE},
 		};
 
-		public int GetPanelNumber(string objectCollided){
-			return ObjectsCollision[objectCollided];
+		public int GetSceneNumber(string objectCollided){
+			return objectsCollision[objectCollided];
 		}
 
 	}

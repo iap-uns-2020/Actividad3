@@ -38,8 +38,6 @@ namespace BoardCreation.View{
 	        int cols = boardManagerPresenter.GetCols();
 	        string levelToPlay = boardManagerPresenter.GetLevelToPlay();
 
-	        //plane.transform.localScale = new Vector3(rows/10.0f, 1, cols/10.0f);
-	        //plane.transform.position = new Vector3(rows / 2, 0f, cols/2);
 	        camera.transform.position = new Vector3(rows / 2, 20, cols / 2);
 
 	        SceneObjectCreator myPlane = sceneObjectManagerPresenter.GetRawSceneObject('p');

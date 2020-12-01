@@ -16,7 +16,7 @@ namespace Collisions.View{
 
         public void ActionObjectCollided(){
             string nameObjectCollided = transform.name;
-            SceneManager.LoadScene(collisionManagerPresenter.GetPanelNumber(nameObjectCollided));
+            SceneManager.LoadScene(collisionManagerPresenter.GetSceneNumber(nameObjectCollided));
         }
     }
 }

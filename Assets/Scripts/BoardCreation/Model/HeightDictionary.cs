@@ -12,6 +12,7 @@ namespace BoardCreation.Model
 		private const string WALLCODE = "wall";
 		private const string PLANECODE = "plane";
 		private const float BALLHEIGHT = 0.5f;
+		private const float PLANEHEIGHT = -0.025f;
 		private const float COMMONHEIGHT = 0.0f;
 
 		private Dictionary<string, float> heightSelector = new Dictionary<string, float>(){
@@ -19,7 +20,7 @@ namespace BoardCreation.Model
 			{HOLECODE, COMMONHEIGHT},
 			{GOALCODE, COMMONHEIGHT},
 			{WALLCODE, COMMONHEIGHT},
-			{PLANECODE, -0.025f},
+			{PLANECODE, PLANEHEIGHT},
 		};
 
 		public float GetHeight(string model)

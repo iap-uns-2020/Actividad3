@@ -10,13 +10,11 @@ namespace BoardCreation.Model{
         private string model;
         private string theme;
         private IHeightDictionary heightDictionary;
-        private IToCollidableObjectsDictionary toCollidableObjectsDictionary;
         
         public SceneObjectCreator(string model){
             this.model = model;
             theme = "generic";
             heightDictionary = new HeightDictionary();
-            toCollidableObjectsDictionary = new ToCollidableObjectsDictionary();
         }
 
         public void SetTheme(string theme){
@@ -25,8 +23,10 @@ namespace BoardCreation.Model{
 
         public void Place(int x, int z){
             float y = 0f;
+            
             if(heightDictionary.Exists(model))
                 y = heightDictionary.GetHeight(model);
+
             Vector3 position = new Vector3(x, y, z);
             Quaternion rotation = Quaternion.Euler(0,0,0);
             gameObject = MonoBehaviour.Instantiate(Resources.Load("Objects"+"/"+theme+"/"+model), position, rotation) as GameObject;

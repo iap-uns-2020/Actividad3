@@ -20,6 +20,10 @@ namespace TimeRegister.Presenter{
 			timeStorageManager.RegisterStartTime();
 		}
 
+		public void RegisterFinnishTime(){
+			timeStorageManager.RegisterFinnishTime();
+		}
+
 		public void Save(int level, TimeSpan timeSpan){
 			timeStorageManager.Save(level,timeSpan);
 		}

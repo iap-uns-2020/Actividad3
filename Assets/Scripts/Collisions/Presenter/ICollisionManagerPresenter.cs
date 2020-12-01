@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Collisions.Presenter{
 	public interface  ICollisionManagerPresenter{
-		int GetPanelNumber(string objectCollided);
+		int GetSceneNumber(string objectCollided);
 	}	
 }
 
