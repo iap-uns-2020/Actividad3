@@ -14,7 +14,6 @@ namespace PanelTransitionManager.View
 
 		void Start()
 		{
-			SceneManager.LoadScene(4);
 			panelStack = new Stack<GameObject>();
 			panelStack.Push(mainPanel);
 		}
