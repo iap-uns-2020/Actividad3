@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PanelTransitionManager.View
 {
@@ -13,6 +14,7 @@ namespace PanelTransitionManager.View
 
 		void Start()
 		{
+			SceneManager.LoadScene(4);
 			panelStack = new Stack<GameObject>();
 			panelStack.Push(mainPanel);
 		}
