@@ -58,7 +58,7 @@ namespace TimeRegister.Model{
 			string levelTime = "";
 			if (PlayerPrefs.HasKey(timeKey))
 			{
-				levelTime = PlayerPrefs.GetString(timeKey);
+				levelTime = WithoutMillis(PlayerPrefs.GetString(timeKey));
 			}
 			return levelTime;
 		}
@@ -66,6 +66,16 @@ namespace TimeRegister.Model{
 		public void Save(int level, TimeSpan timeSpan){
 			string timeKey = TIMEKEY+level;
 			PlayerPrefs.SetString(timeKey,timeSpan.ToString());
+		}
+
+		private string WithoutMillis(string str){
+			string output = "";
+			int i=0;
+			while(i<str.Length && str[i]!='.'){
+				output+=str[i];
+				i++;
+			}
+			return output;
 		}
 	}	
 }
