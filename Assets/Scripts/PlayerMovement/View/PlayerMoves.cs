@@ -20,62 +20,13 @@ namespace PlayerMovement.View
         {
             rb = GetComponent<Rigidbody>();
             controlPlayerPresenter = new ControlPlayerPresenter();
-            Screen.autorotateToPortrait = false;
-            Screen.autorotateToLandscapeLeft = false;
-            Screen.autorotateToLandscapeRight = false;
             lastMovementInX = 0.0f;
             lastMovementInZ = 0.0f;
         }
 
         void Update()
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                MoveBackward();
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                MoveForward();
-            }
-            else if (Input.GetKey(KeyCode.W))
-            {
-                MoveLeft();
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                MoveRight();
-            }
-            else if (Input.GetKey(KeyCode.Space))
-            {
-                Jump();
-            }
-                GetControlPlayerUpdate();
-        }
-
-
-        void MoveLeft()
-        {
-            rb.velocity += new Vector3(-0.3f, 0, 0);
-        }
-
-        void MoveRight()
-        {
-            rb.velocity += new Vector3(0.3f, 0, 0);
-        }
-
-        void MoveForward()
-        {
-            rb.velocity += new Vector3(0, 0, 0.3f);
-        }
-
-        void MoveBackward()
-        {
-            rb.velocity += new Vector3(0, 0, -0.3f);
-        }
-
-        void Jump()
-        {
-            rb.velocity += new Vector3(0, 0.3f, 0);
+            GetControlPlayerUpdate();
         }
 
 
