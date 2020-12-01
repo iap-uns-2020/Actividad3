@@ -11,7 +11,8 @@ using SkinManager;
 
 namespace BoardCreation.View{
 	public class BoardGUI : MonoBehaviour, IBoardGUI{
-	    public GameObject plane;
+        private const char PLANECODE = 'p';
+        public GameObject plane;
 	    public GameObject camera;
 	    private ISceneObjectManagerPresenter sceneObjectManagerPresenter;
 	    private IBoardManagerPresenter boardManagerPresenter;
@@ -40,9 +41,12 @@ namespace BoardCreation.View{
 
 	        camera.transform.position = new Vector3(rows / 2, 20, cols / 2);
 
-	        SceneObjectCreator myPlane = sceneObjectManagerPresenter.GetRawSceneObject('p');
-	        
-	        myPlane.SetTheme(dictionarySkin.GetNameSkin(currentLevel));
+	        SceneObjectCreator myPlane = sceneObjectManagerPresenter.GetRawSceneObject(PLANECODE);
+
+            if (dictionarySkin.Exists(currentLevel))
+            {
+                myPlane.SetTheme(dictionarySkin.GetNameSkin(currentLevel));
+            }
 	        myPlane.Place(rows/2,cols/2);
 
 
@@ -54,7 +58,6 @@ namespace BoardCreation.View{
 	                    SceneObjectCreator currentSceneObject = sceneObjectManagerPresenter.GetRawSceneObject(levelToPlay[k]);
                         if (dictionarySkin.Exists(currentLevel)){
                             currentSceneObject.SetTheme(dictionarySkin.GetNameSkin(currentLevel));
-
                         }
                         currentSceneObject.Place(i,j);	
                             
