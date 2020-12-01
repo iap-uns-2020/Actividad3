@@ -10,6 +10,7 @@ namespace BoardCreation.Model{
             {'b', new Ball()},
             {'h', new Hole()},
             {'g', new Goal()},
+            {'p', new Plane()},
         };
 
         public SceneObjectCreator GetRawSceneObject(char type){

@@ -70,7 +70,7 @@ namespace LevelCreation.View
         }
 
 
-        private void SetSelectedLevel()
+        public void SetSelectedLevel()
         {
             currentLevelManagerPresenter.SetCurrentLevel(currentLevel);
         }
