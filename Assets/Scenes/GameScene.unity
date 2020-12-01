@@ -150,7 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d45c722610669146883fa445bfece24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plane: {fileID: 0}
   camera: {fileID: 1609339484}
 --- !u!4 &1149325948
 Transform:

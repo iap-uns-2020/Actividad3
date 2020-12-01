@@ -10,16 +10,12 @@ namespace Collisions.View{
     public class SceneObjectCollided : MonoBehaviour, Collidable{
 
         private ICollisionManagerPresenter collisionManagerPresenter;
-        private TimeStorageManager timeStorageManager;
 
         void Start(){
-            collisionManagerPresenter = new CollisionManagerPresenter();
-            timeStorageManager = new TimeStorageManager();
-        }
+            collisionManagerPresenter = new CollisionManagerPresenter();        }
 
         public void ActionObjectCollided(){
             string nameObjectCollided = transform.name;
-            timeStorageManager.RegisterFinnishTime();
             SceneManager.LoadScene(collisionManagerPresenter.GetPanelNumber(nameObjectCollided));
         }
     }
